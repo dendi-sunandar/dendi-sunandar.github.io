@@ -5,6 +5,9 @@ function populateContent() {
         return;
     }
 
+    // Populate meta tags first
+    populateMetaTags();
+    
     populateNavigation();
     populateHero();
     populateAbout();
@@ -208,8 +211,116 @@ function populateFooter() {
 
 function updatePageTitle() {
     const pageTitle = document.getElementById('page-title');
-    if (pageTitle && profileData.personal && profileData.personal.name) {
+    if (pageTitle && profileData.meta && profileData.meta.title) {
+        pageTitle.textContent = profileData.meta.title;
+    } else if (pageTitle && profileData.personal && profileData.personal.name) {
         pageTitle.textContent = `${profileData.personal.name} - Profile`;
+    }
+}
+
+function populateMetaTags() {
+    if (!profileData.meta) return;
+
+    // Update document title
+    if (profileData.meta.title) {
+        document.title = profileData.meta.title;
+    }
+
+    // Update or create meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+    }
+    if (profileData.meta.description) {
+        metaDescription.setAttribute('content', profileData.meta.description);
+    }
+
+    // Update or create meta keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.setAttribute('name', 'keywords');
+        document.head.appendChild(metaKeywords);
+    }
+    if (profileData.meta.keywords) {
+        metaKeywords.setAttribute('content', profileData.meta.keywords);
+    }
+
+    // Update or create meta author
+    let metaAuthor = document.querySelector('meta[name="author"]');
+    if (!metaAuthor) {
+        metaAuthor = document.createElement('meta');
+        metaAuthor.setAttribute('name', 'author');
+        document.head.appendChild(metaAuthor);
+    }
+    if (profileData.meta.author) {
+        metaAuthor.setAttribute('content', profileData.meta.author);
+    }
+
+    // Open Graph meta tags
+    if (profileData.meta.ogTitle) {
+        let ogTitle = document.querySelector('meta[property="og:title"]');
+        if (!ogTitle) {
+            ogTitle = document.createElement('meta');
+            ogTitle.setAttribute('property', 'og:title');
+            document.head.appendChild(ogTitle);
+        }
+        ogTitle.setAttribute('content', profileData.meta.ogTitle);
+    }
+
+    if (profileData.meta.ogDescription) {
+        let ogDescription = document.querySelector('meta[property="og:description"]');
+        if (!ogDescription) {
+            ogDescription = document.createElement('meta');
+            ogDescription.setAttribute('property', 'og:description');
+            document.head.appendChild(ogDescription);
+        }
+        ogDescription.setAttribute('content', profileData.meta.ogDescription);
+    }
+
+    if (profileData.meta.ogImage) {
+        let ogImage = document.querySelector('meta[property="og:image"]');
+        if (!ogImage) {
+            ogImage = document.createElement('meta');
+            ogImage.setAttribute('property', 'og:image');
+            document.head.appendChild(ogImage);
+        }
+        ogImage.setAttribute('content', profileData.meta.ogImage);
+    }
+
+    // Open Graph Type
+    if (profileData.meta.ogType) {
+        let ogType = document.querySelector('meta[property="og:type"]');
+        if (!ogType) {
+            ogType = document.createElement('meta');
+            ogType.setAttribute('property', 'og:type');
+            document.head.appendChild(ogType);
+        }
+        ogType.setAttribute('content', profileData.meta.ogType);
+    }
+
+    // Open Graph URL
+    if (profileData.meta.ogUrl) {
+        let ogUrl = document.querySelector('meta[property="og:url"]');
+        if (!ogUrl) {
+            ogUrl = document.createElement('meta');
+            ogUrl.setAttribute('property', 'og:url');
+            document.head.appendChild(ogUrl);
+        }
+        ogUrl.setAttribute('content', profileData.meta.ogUrl);
+    }
+
+    // Twitter Card meta tags
+    if (profileData.meta.twitterCard) {
+        let twitterCard = document.querySelector('meta[name="twitter:card"]');
+        if (!twitterCard) {
+            twitterCard = document.createElement('meta');
+            twitterCard.setAttribute('name', 'twitter:card');
+            document.head.appendChild(twitterCard);
+        }
+        twitterCard.setAttribute('content', profileData.meta.twitterCard);
     }
 }
 

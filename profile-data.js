@@ -2,6 +2,18 @@
 // Update this file to manage your profile content easily
 
 const profileData = {
+    // Page Meta Information
+    meta: {
+        title: "Dendi Sunandar, ST - Senior Programmer Portfolio",
+        description: "Portfolio of Dendi Sunandar, ST - Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
+        keywords: "Dendi Sunandar, Senior Programmer, Software Developer, Portfolio, Web Development, Programming",
+        author: "Dendi Sunandar, ST",
+        ogTitle: "Dendi Sunandar, ST - Senior Programmer",
+        ogDescription: "Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
+        ogImage: "", // Add your profile image URL here if available
+        twitterCard: "summary_large_image"
+    },
+
     // Personal Information
     personal: {
         name: "Dendi Sunandar, ST",
@@ -81,7 +93,7 @@ const profileData = {
     contact: {
         email: "dendisunandar@gmail.com",
         linkedin: "https://www.linkedin.com/in/dendi-sunandar-9355b7145",
-        github: "github.com/yourusername",
+        github: "github.com/dendi-sunandar",
         phone: "+62 813 2065 5381" // Optional
     },
 
