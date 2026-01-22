@@ -8,9 +8,15 @@ const profileData = {
         description: "Portfolio of Dendi Sunandar, ST - Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
         keywords: "Dendi Sunandar, Senior Programmer, Software Developer, Portfolio, Web Development, Programming",
         author: "Dendi Sunandar, ST",
+        // Favicon
+        favicon: "favicon.ico", // Path to your favicon file (e.g., "favicon.svg", "favicon.ico", "images/favicon.png", or full URL)
+        // Open Graph (for Google & social)
         ogTitle: "Dendi Sunandar, ST - Senior Programmer",
         ogDescription: "Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
+        ogType: "website",
+        ogUrl: "https://dendi-sunandar.github.io",
         ogImage: "", // Add your profile image URL here if available
+        // Twitter Card
         twitterCard: "summary_large_image"
     },
 

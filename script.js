@@ -226,6 +226,27 @@ function populateMetaTags() {
         document.title = profileData.meta.title;
     }
 
+    // Update favicon
+    if (profileData.meta.favicon) {
+        // Remove existing favicon links
+        const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+        existingFavicons.forEach(link => link.remove());
+
+        // Add new favicon
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = profileData.meta.favicon.endsWith('.png') ? 'image/png' : 
+                      profileData.meta.favicon.endsWith('.svg') ? 'image/svg+xml' : 'image/x-icon';
+        favicon.href = profileData.meta.favicon;
+        document.head.appendChild(favicon);
+
+        // Also add shortcut icon for older browsers
+        const shortcutIcon = document.createElement('link');
+        shortcutIcon.rel = 'shortcut icon';
+        shortcutIcon.href = profileData.meta.favicon;
+        document.head.appendChild(shortcutIcon);
+    }
+
     // Update or create meta description
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
