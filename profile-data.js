@@ -4,14 +4,14 @@
 const profileData = {
     // Page Meta Information
     meta: {
-        title: "Dendi Sunandar, ST - Senior Programmer Portfolio",
-        description: "Portfolio of Dendi Sunandar, ST - Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
+        title: "Dendi Sunandar, S.T. - Senior Programmer Portfolio",
+        description: "Portfolio of Dendi Sunandar, S.T. - Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
         keywords: "Dendi Sunandar, Senior Programmer, Software Developer, Portfolio, Web Development, Programming",
-        author: "Dendi Sunandar, ST",
+        author: "Dendi Sunandar, S.T.",
         // Favicon
         favicon: "favicon.ico", // Path to your favicon file (e.g., "favicon.svg", "favicon.ico", "images/favicon.png", or full URL)
         // Open Graph (for Google & social)
-        ogTitle: "Dendi Sunandar, ST - Senior Programmer",
+        ogTitle: "Dendi Sunandar, S.T. - Senior Programmer",
         ogDescription: "Senior Programmer with 8+ years of experience in software development. Crafting elegant solutions through code since 2016.",
         ogType: "website",
         ogUrl: "https://dendi-sunandar.github.io",
@@ -22,7 +22,7 @@ const profileData = {
 
     // Personal Information
     personal: {
-        name: "Dendi Sunandar, ST",
+        name: "Dendi Sunandar, S.T.",
         title: "Senior Programmer",
         tagline: "Crafting elegant solutions through code since 2016",
         greeting: "Hello, I'm"
@@ -114,7 +114,7 @@ const profileData = {
 
     // Footer
     footer: {
-        text: "© 2024 Dendi Sunandar, ST. All rights reserved."
+        text: "© 2024 Dendi Sunandar, S.T.. All rights reserved."
     }
 };
 
