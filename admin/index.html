@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Manage Portfolio Data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-title">Portfolio Admin</div>
+        <div class="brand-subtitle">Edit `profileData` safely (stored locally)</div>
+      </div>
+
+      <div class="topbar-actions">
+        <a class="btn btn-ghost" href="../landing/index.html" target="_blank" rel="noopener noreferrer">Open Site</a>
+        <div class="theme-switcher" id="theme-switcher">
+          <button class="btn btn-ghost" id="theme-toggle" type="button" aria-label="Toggle theme menu">
+            Theme
+          </button>
+          <div class="theme-menu" id="theme-menu" role="menu" aria-label="Theme menu">
+            <button class="theme-option" data-theme="light-blue" type="button">
+              <span class="theme-preview" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #2563eb 100%);"></span>
+              <span>Light Blue</span>
+            </button>
+            <button class="theme-option" data-theme="dark-blue" type="button">
+              <span class="theme-preview" style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);"></span>
+              <span>Dark Blue</span>
+            </button>
+            <button class="theme-option" data-theme="colorful-light" type="button">
+              <span class="theme-preview" style="background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);"></span>
+              <span>Colorful Light</span>
+            </button>
+            <button class="theme-option" data-theme="colorful-dark" type="button">
+              <span class="theme-preview" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);"></span>
+              <span>Colorful Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="card-header">
+        <h1>Manage Portfolio Data</h1>
+        <p>
+          This page edits the same data your site uses (<code>profileData</code>), but stores changes in your browser
+          (<code>localStorage</code>) under an override key. Your <code>profile-data.js</code> file stays untouched.
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn btn-primary" id="btn-load-effective" type="button">Load current (base + override)</button>
+        <button class="btn" id="btn-load-base" type="button">Load base (file)</button>
+        <button class="btn" id="btn-save" type="button">Save override</button>
+        <button class="btn btn-danger" id="btn-reset" type="button">Reset override</button>
+        <span class="spacer"></span>
+        <button class="btn" id="btn-download-json" type="button">Download override JSON</button>
+        <button class="btn" id="btn-copy-js" type="button">Copy `profile-data.js` snippet</button>
+      </div>
+
+      <div class="editor-grid">
+        <div class="panel">
+          <div class="panel-title">JSON editor</div>
+          <textarea id="json-editor" spellcheck="false" class="editor" aria-label="Profile data JSON editor"></textarea>
+          <div class="hint">
+            Tip: Use valid JSON (double quotes). Click “Save override” then refresh the site.
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">Status</div>
+          <div id="status" class="status">Loading…</div>
+
+          <div class="panel-title mt">Quick links</div>
+          <ul class="list">
+            <li><code>localStorage</code> key: <code id="storage-key"></code></li>
+            <li>Override active: <strong id="override-active">…</strong></li>
+          </ul>
+
+          <div class="panel-title mt">Safety</div>
+          <ul class="list">
+            <li>Changes apply only on this browser/device until you copy/export them.</li>
+            <li>Use “Copy `profile-data.js` snippet” to permanently update your file if you want.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../landing/themes.js"></script>
+  <script src="../landing/profile-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
+

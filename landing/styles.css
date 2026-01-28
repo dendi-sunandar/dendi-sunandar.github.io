@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-:root {
+::root {
     --primary-color: #6366f1;
     --secondary-color: #8b5cf6;
     --accent-color: #ec4899;
@@ -900,7 +900,6 @@ body {
         right: 0;
         left: auto;
     }
-}
 
     .hero-content {
         grid-template-columns: 1fr;
@@ -927,3 +926,4 @@ body {
         font-size: 2rem;
     }
 }
+

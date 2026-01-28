@@ -1,7 +1,27 @@
 // Content Population Functions
+const PROFILE_DATA_OVERRIDE_KEY = 'profileDataOverride';
+
+function getProfileData() {
+    // Prefer admin override from localStorage if available.
+    try {
+        const raw = localStorage.getItem(PROFILE_DATA_OVERRIDE_KEY);
+        if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed && typeof parsed === 'object') return parsed;
+        }
+    } catch (e) {
+        console.warn('Invalid profileData override in localStorage. Falling back to base profileData.', e);
+    }
+
+    // Fall back to base profile-data.js
+    if (typeof profileData !== 'undefined') return profileData;
+    return null;
+}
+
 function populateContent() {
-    if (typeof profileData === 'undefined') {
-        console.error('profileData is not defined. Make sure profile-data.js is loaded.');
+    const profileData = getProfileData();
+    if (!profileData) {
+        console.error('profileData is not available. Make sure profile-data.js is loaded.');
         return;
     }
 
@@ -19,6 +39,7 @@ function populateContent() {
 }
 
 function populateNavigation() {
+    const profileData = getProfileData();
     const navMenu = document.getElementById('nav-menu');
     if (!navMenu || !profileData.navigation) return;
 
@@ -35,6 +56,7 @@ function populateNavigation() {
 }
 
 function populateHero() {
+    const profileData = getProfileData();
     if (!profileData.personal) return;
 
     const greeting = document.getElementById('hero-greeting');
@@ -53,6 +75,7 @@ function populateHero() {
 }
 
 function populateAbout() {
+    const profileData = getProfileData();
     const aboutText = document.getElementById('about-text');
     if (!aboutText || !profileData.about) return;
 
@@ -83,6 +106,7 @@ function populateAbout() {
 }
 
 function populateExperience() {
+    const profileData = getProfileData();
     const timeline = document.getElementById('timeline');
     if (!timeline || !profileData.experience) return;
 
@@ -114,6 +138,7 @@ function populateExperience() {
 }
 
 function populateSkills() {
+    const profileData = getProfileData();
     const skillsGrid = document.getElementById('skills-grid');
     if (!skillsGrid || !profileData.skills) return;
 
@@ -136,6 +161,7 @@ function populateSkills() {
 }
 
 function populateContact() {
+    const profileData = getProfileData();
     const contactInfo = document.getElementById('contact-info');
     if (!contactInfo || !profileData.contact) return;
 
@@ -203,6 +229,7 @@ function populateContact() {
 }
 
 function populateFooter() {
+    const profileData = getProfileData();
     const footerText = document.getElementById('footer-text');
     if (footerText && profileData.footer && profileData.footer.text) {
         footerText.textContent = profileData.footer.text;
@@ -210,6 +237,7 @@ function populateFooter() {
 }
 
 function updatePageTitle() {
+    const profileData = getProfileData();
     const pageTitle = document.getElementById('page-title');
     if (pageTitle && profileData.meta && profileData.meta.title) {
         pageTitle.textContent = profileData.meta.title;
@@ -219,6 +247,7 @@ function updatePageTitle() {
 }
 
 function populateMetaTags() {
+    const profileData = getProfileData();
     if (!profileData.meta) return;
 
     // Update document title
@@ -743,3 +772,4 @@ document.querySelectorAll('.skill-card').forEach((card, index) => {
 // Console welcome message
 console.log('%c👋 Welcome to my Portfolio!', 'font-size: 20px; font-weight: bold; color: #6366f1;');
 console.log('%cI\'m a Senior Programmer with 8+ years of experience.', 'font-size: 14px; color: #8b5cf6;');
+

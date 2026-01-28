@@ -136,3 +136,4 @@ if (typeof window !== 'undefined') {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { themes, defaultTheme, getCurrentTheme, setTheme, applyTheme, initTheme };
 }
+
