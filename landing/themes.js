@@ -15,7 +15,11 @@ const themes = {
             gradient: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #2563eb 100%)',
             cardBg: '#ffffff',
             border: '#bfdbfe'
-        }
+        },
+        herobg: `
+            linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+            url('https://images.pexels.com/photos/5499551/pexels-photo-5499551.jpeg?_gl=1*1w6n46x*_ga*MjUzNzc3NjE2LjE3Njk1ODc5NDI.*_ga_8JE65Q40S6*czE3Njk1ODc5NDIkbzEkZzEkdDE3Njk1ODkxNTEkajQ4JGwwJGgw')
+        `
     },
     'dark-blue': {
         name: 'Dark Blue',
@@ -30,23 +34,25 @@ const themes = {
             gradient: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)',
             cardBg: '#1e293b',
             border: '#3b82f6'
-        }
+        },
+        herobg: `url('https://images.pexels.com/photos/5499551/pexels-photo-5499551.jpeg?_gl=1*1w6n46x*_ga*MjUzNzc3NjE2LjE3Njk1ODc5NDI.*_ga_8JE65Q40S6*czE3Njk1ODc5NDIkbzEkZzEkdDE3Njk1ODkxNTEkajQ4JGwwJGgw')`
     },
-    'colorful-light': {
-        name: 'Colorful Light',
-        colors: {
-            primary: '#8b5cf6',
-            secondary: '#ec4899',
-            accent: '#f59e0b',
-            background: '#fef3c7',
-            surface: '#fde68a',
-            textPrimary: '#78350f',
-            textSecondary: '#92400e',
-            gradient: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%)',
-            cardBg: '#ffffff',
-            border: '#fbbf24'
-        }
-    },
+    // 'colorful-light': {
+    //     name: 'Colorful Light',
+    //     colors: {
+    //         primary: '#8b5cf6',
+    //         secondary: '#ec4899',
+    //         accent: '#f59e0b',
+    //         background: '#fef3c7',
+    //         surface: '#fde68a',
+    //         textPrimary: '#78350f',
+    //         textSecondary: '#92400e',
+    //         gradient: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%)',
+    //         cardBg: '#ffffff',
+    //         border: '#fbbf24'
+    //     },
+    //     herobg: `url('https://images.pexels.com/photos/5380603/pexels-photo-5380603.jpeg?_gl=1*1wumtlh*_ga*MjUzNzc3NjE2LjE3Njk1ODc5NDI.*_ga_8JE65Q40S6*czE3Njk1ODc5NDIkbzEkZzEkdDE3Njk1ODgxODckajE3JGwwJGgw')`
+    // },
     'colorful-dark': {
         name: 'Colorful Dark',
         colors: {
@@ -60,7 +66,8 @@ const themes = {
             gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)',
             cardBg: '#1e293b',
             border: '#6366f1'
-        }
+        },
+        herobg: `url('https://images.pexels.com/photos/5499551/pexels-photo-5499551.jpeg?_gl=1*1w6n46x*_ga*MjUzNzc3NjE2LjE3Njk1ODc5NDI.*_ga_8JE65Q40S6*czE3Njk1ODc5NDIkbzEkZzEkdDE3Njk1ODkxNTEkajQ4JGwwJGgw')`
     }
 };
 
@@ -87,6 +94,7 @@ function applyTheme(themeName) {
 
     const root = document.documentElement;
     const colors = theme.colors;
+    const herobg = theme.herobg;
 
     // Set CSS custom properties
     root.style.setProperty('--primary-color', colors.primary);
@@ -99,7 +107,7 @@ function applyTheme(themeName) {
     root.style.setProperty('--gradient', colors.gradient);
     root.style.setProperty('--card-bg', colors.cardBg);
     root.style.setProperty('--border-color', colors.border);
-
+    root.style.setProperty('--hero-background', herobg);
     // Update theme switcher active state (if function exists)
     if (typeof updateThemeSwitcher === 'function') {
         updateThemeSwitcher(themeName);

@@ -308,6 +308,11 @@ body {
     padding: 120px 2rem 2rem;
     position: relative;
     overflow: hidden;
+    
+    background-image: var(--hero-background);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero::before {
@@ -332,13 +337,13 @@ body {
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 300;
     margin-bottom: 0.5rem;
 }
 
 .hero-text h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     background: var(--gradient);
     -webkit-background-clip: text;
